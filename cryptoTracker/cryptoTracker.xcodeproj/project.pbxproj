@@ -16,6 +16,7 @@
 		5C16ED1127D699A300682D09 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16ED1027D699A200682D09 /* Crypto.swift */; };
 		5C16ED1327D6BA1D00682D09 /* AllTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16ED1227D6BA1D00682D09 /* AllTableViewController.swift */; };
 		5C16ED1727D8771600682D09 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16ED1627D8771600682D09 /* DetailTableViewController.swift */; };
+		5C16ED1927D9A0A200682D09 /* TradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16ED1827D9A0A200682D09 /* TradeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		5C16ED1027D699A200682D09 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		5C16ED1227D6BA1D00682D09 /* AllTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTableViewController.swift; sourceTree = "<group>"; };
 		5C16ED1627D8771600682D09 /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		5C16ED1827D9A0A200682D09 /* TradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		5C16ECFB27D6926300682D09 /* cryptoTracker */ = {
 			isa = PBXGroup;
 			children = (
+				5C16ED1827D9A0A200682D09 /* TradeViewController.swift */,
 				5C16ECFC27D6926300682D09 /* AppDelegate.swift */,
 				5C16ECFE27D6926300682D09 /* SceneDelegate.swift */,
 				5C16ED0027D6926300682D09 /* HomeViewController.swift */,
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C16ED1927D9A0A200682D09 /* TradeViewController.swift in Sources */,
 				5C16ED1727D8771600682D09 /* DetailTableViewController.swift in Sources */,
 				5C16ED1327D6BA1D00682D09 /* AllTableViewController.swift in Sources */,
 				5C16ED1127D699A300682D09 /* Crypto.swift in Sources */,

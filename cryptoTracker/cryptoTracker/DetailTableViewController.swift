@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class DetailTableViewController: UITableViewController {
     
     var crypto:Crypto?
@@ -82,6 +83,15 @@ class DetailTableViewController: UITableViewController {
             
             
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+
+        guard let target = segue.destination as? TradeViewController else{return}
+        
+        target.crypto=crypto
+        
     }
     
    func  setMarketCap(marketCap:Double)->Double{

@@ -11,7 +11,7 @@ var stringUrl="https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&or
 
 var allCryptos=[Crypto]()
 
-
+var balance=1000
 
 class HomeViewController: UITableViewController {
     var favorites=["Bitcoin","Ethereum","Solana"]
