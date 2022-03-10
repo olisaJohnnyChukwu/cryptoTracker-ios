@@ -22,6 +22,7 @@ struct Crypto:Codable{
     let _1hr:Double
     let _7d:Double
     let athCh:Double
+    let supply:Double
     
     
     
@@ -41,6 +42,7 @@ struct Crypto:Codable{
         case _1hr="price_change_percentage_1h_in_currency"
         case _7d="price_change_percentage_7d_in_currency"
         case athCh = "ath_change_percentage"
+        case supply="circulating_supply"
          
     }
     

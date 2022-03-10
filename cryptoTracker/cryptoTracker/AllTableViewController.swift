@@ -59,6 +59,20 @@ class AllTableViewController: UITableViewController {
         return cell
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let cryptoDetailsViewController = segue.destination as? DetailTableViewController
+        else{
+            return
+        }
+        
+        
+        if let indexpath = self.tableView.indexPathForSelectedRow{
+            cryptoDetailsViewController.crypto=allCryptos[indexpath.row]
+            
+            
+        }
+    }
 
     
     
