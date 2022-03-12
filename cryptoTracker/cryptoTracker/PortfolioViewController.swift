@@ -19,6 +19,7 @@ class PortfolioViewController: UIViewController,UITableViewDelegate,UITableViewD
     var holding=[Crypto]()
     
     
+    @IBOutlet weak var balanceLabel: UILabel!
     
 
     @IBOutlet weak var tableView: UITableView!
@@ -37,7 +38,7 @@ class PortfolioViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        print(holding.count)
+        
         return holding.count
         
     }
@@ -45,6 +46,7 @@ class PortfolioViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         loadData()
+        balanceLabel.text="\(balance)"
         
     }
     

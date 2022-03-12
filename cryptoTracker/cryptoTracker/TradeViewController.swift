@@ -92,19 +92,28 @@ class TradeViewController: UIViewController {
         else {
             return
         }
+        
+        
+        guard let name = crypto?.name
+        else {
+            return
+        }
+        
+        
         var order:Order
         
         if segControl.selectedSegmentIndex==0{
             
-             order = Order(quantity: quantity, price: cost,type: .buy)
+            order = Order(name:name,quantity: quantity, price: cost,type: .buy)
             if(order.price>balance){
                 failurePopup(order)
                 return
             }
+            
             successpupUp(order,buy)
             
         }else{
-            order = Order(quantity: quantity, price: cost,type: .sell)
+            order = Order(name:name,quantity: quantity, price: cost,type: .sell)
             if user.currentHolding(crypto!)<quantity{
                 failurePopup(order)
             }

@@ -13,7 +13,7 @@ struct Order:CustomStringConvertible{
         return " Quantity: \(quantity) \n Price: \(price) \n Type:\(type) \n Date: "+dateFormatter.string(from:date)
         }
     
-    
+    var name:String
     var quantity:Double
     var price:Double
     var date:Date=Date()
@@ -23,8 +23,9 @@ struct Order:CustomStringConvertible{
    
 
     
-    init(quantity:Double,price:Double,type:OrderType){
+    init(name:String,quantity:Double,price:Double,type:OrderType){
         
+        self.name=name
         self.quantity=quantity
         self.price=price
         self.type=type
@@ -38,6 +39,8 @@ struct Order:CustomStringConvertible{
 enum OrderType:String{
     case buy="Buy"
     case sell="Sell"
+    case withdraw="Withdraw"
+    case deposit="Deposit"
 }
 
 
