@@ -6,3 +6,38 @@
 //
 
 import Foundation
+
+
+struct Order:CustomStringConvertible{
+    var description: String{
+        return " Quantity: \(quantity) \n Price: \(price) \n Type:\(type) \n Date: "+dateFormatter.string(from:date)
+        }
+    
+    
+    var quantity:Double
+    var price:Double
+    var date:Date=Date()
+    let dateFormatter = DateFormatter()
+    var type:OrderType
+
+   
+
+    
+    init(quantity:Double,price:Double,type:OrderType){
+        
+        self.quantity=quantity
+        self.price=price
+        self.type=type
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+    }
+    
+}
+
+
+
+enum OrderType:String{
+    case buy="Buy"
+    case sell="Sell"
+}
+
+

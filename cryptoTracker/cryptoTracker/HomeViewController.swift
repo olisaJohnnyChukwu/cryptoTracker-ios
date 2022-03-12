@@ -10,8 +10,12 @@ import UIKit
 var stringUrl="https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d"
 
 var allCryptos=[Crypto]()
+var orders=[Order]()
 
-var balance=1000
+var user:User=User()
+
+
+var balance=10000.0
 
 class HomeViewController: UITableViewController {
     var favorites=["Bitcoin","Ethereum","Solana"]
@@ -37,6 +41,7 @@ class HomeViewController: UITableViewController {
     @IBOutlet weak var bitcoinCh: UILabel!
     
     
+    @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var bitcoinIcon: UIImageView!
     
     @IBOutlet weak var ethereum: UILabel!
@@ -65,6 +70,10 @@ class HomeViewController: UITableViewController {
         
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        balanceLabel.text="\(balance)"
+    }
     
     func fetchData(completed:@escaping ()-> ()){
         

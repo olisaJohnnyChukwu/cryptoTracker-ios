@@ -18,9 +18,14 @@ class TradeViewController: UIViewController {
     
     @IBOutlet weak var price: UILabel!
     
+    @IBOutlet weak var tradePrice: UILabel!
     
     @IBOutlet weak var priceTF: UITextField!
     
+    
+    @IBOutlet weak var balanceInCoin: UILabel!
+    
+    @IBOutlet weak var segControl: UISegmentedControl!
     
     @IBOutlet weak var quantityTF: UITextField!
     
@@ -33,7 +38,24 @@ class TradeViewController: UIViewController {
     }
     
     
+    
+    
     var crypto:Crypto?
+    
+    
+    
+    var setCoinBalance={
+        (coin:Crypto,label:UILabel) in
+        if (user.owns(coin)){
+            label.text=coin.symbol+" "+String(format: "%.2f",user.currentHolding(coin))
+        }
+                                              
+                                              
+    }
+    
+    
+    
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,12 +66,117 @@ class TradeViewController: UIViewController {
             price.text="$ \(crypto.price)"
             balanceLabel.text="$ \(balance)"
             quantityTF.placeholder=crypto.symbol
+            setCoinBalance(crypto,balanceInCoin)
+        }
+    }
+    
+    
+    
+    @IBAction func submitTrade(_ sender: UIButton) {
+        
+//        let quantityInString = quantityTF.text
+//        let priceInString = priceTF.text
+        guard let quantityInString = quantityTF.text
+        else{
+            return
+        }
+        guard let priceInString = priceTF.text
+        else{
+            return
+        }
+        guard let quantity = Double(quantityInString)
+        else {
+            return
+        }
+        guard let cost = Double(priceInString)
+        else {
+            return
+        }
+        var order:Order
+        
+        if segControl.selectedSegmentIndex==0{
+            
+             order = Order(quantity: quantity, price: cost,type: .buy)
+            if(order.price>balance){
+                failurePopup(order)
+                return
+            }
+            successpupUp(order,buy)
+            
+        }else{
+            order = Order(quantity: quantity, price: cost,type: .sell)
+            if user.currentHolding(crypto!)<quantity{
+                failurePopup(order)
+            }
+    
+            successpupUp(order, sell)
         }
         
         
-        
+    }
+    
+    
+    
+    
+    
+    
+    
+    func buy(_ order:Order){
+        balance -= order.price
+        orders.append(order)
+        balanceLabel.text="$ \(balance)"
+        user.addToHolding(crypto!, order.quantity)
+        setCoinBalance(crypto!,balanceInCoin)
         
     }
+    
+    
+    
+    
+    
+    func  sell(_ order:Order){
+        balance -= order.price
+        orders.append(order)
+        balanceLabel.text="$ \(balance)"
+        user.reduceHolding(crypto!, order.quantity)
+        setCoinBalance(crypto!,balanceInCoin)
+        
+    }
+    
+    
+    func failurePopup(_ order:Order){
+        
+        let alert:UIAlertController = UIAlertController(title:"Transaction Failed", message: "INSUFFICIENT BALANCE \n"+order.description, preferredStyle: .alert)
+        let action1=UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action1)
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
+    
+    
+    
+    func successpupUp(_ order:Order,_ call:@escaping (Order)->Void){
+        
+        let alert:UIAlertController = UIAlertController(title:"Review Order", message: order.description, preferredStyle: .alert)
+        
+        
+        let action1=UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let action2=UIAlertAction(title: "OK", style: .default) {
+            (action) in call(order)
+        }
+        alert.addAction(action1)
+        alert.addAction(action2)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
+    
+    
     
     
     
@@ -64,15 +191,15 @@ class TradeViewController: UIViewController {
         
         if let crypto = crypto {
             let convert=order/crypto.price
-            quantityTF.text="\(convert)"
+            quantityTF.text=String(format: "%.2f",convert)
+            setPrice(tradeprice: order)
         }
         
-        
-        
-        
-        
-        
-        
+    }
+    
+    
+    func setPrice(tradeprice:Double){
+        tradePrice.text=String(format: "%.2f", tradeprice)
     }
     
     
@@ -84,19 +211,24 @@ class TradeViewController: UIViewController {
         guard let order = Double(text)
         else{return}
         
+        
+        
         if let crypto = crypto {
             let convert=order*crypto.price
-            priceTF.text="\(convert)"
+            priceTF.text=String(format: "%.2f",convert)
+            setPrice(tradeprice: convert)
+            
         }
     }
     
     
     
-    
-    @IBAction func goBack(){
+    @IBAction func returnToPrevious(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
+    
+ 
     
     func setImage(image:String){
         if let data = try? Data(contentsOf:       URL(string:image)!){

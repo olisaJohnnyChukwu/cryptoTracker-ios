@@ -35,7 +35,7 @@ class AllTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let crypto=allCryptos[indexPath.row]
         
-        print(crypto.name)
+        
         
        
         

@@ -17,6 +17,9 @@
 		5C16ED1327D6BA1D00682D09 /* AllTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16ED1227D6BA1D00682D09 /* AllTableViewController.swift */; };
 		5C16ED1727D8771600682D09 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16ED1627D8771600682D09 /* DetailTableViewController.swift */; };
 		5C16ED1927D9A0A200682D09 /* TradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16ED1827D9A0A200682D09 /* TradeViewController.swift */; };
+		5C16ED1B27D9E18F00682D09 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16ED1A27D9E18F00682D09 /* Order.swift */; };
+		5C16ED1D27DB0A8C00682D09 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16ED1C27DB0A8C00682D09 /* User.swift */; };
+		5C16ED1F27DC04AE00682D09 /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16ED1E27DC04AE00682D09 /* PortfolioViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		5C16ED1227D6BA1D00682D09 /* AllTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTableViewController.swift; sourceTree = "<group>"; };
 		5C16ED1627D8771600682D09 /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		5C16ED1827D9A0A200682D09 /* TradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeViewController.swift; sourceTree = "<group>"; };
+		5C16ED1A27D9E18F00682D09 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		5C16ED1C27DB0A8C00682D09 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5C16ED1E27DC04AE00682D09 /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,11 +71,14 @@
 			isa = PBXGroup;
 			children = (
 				5C16ED1827D9A0A200682D09 /* TradeViewController.swift */,
+				5C16ED1A27D9E18F00682D09 /* Order.swift */,
 				5C16ECFC27D6926300682D09 /* AppDelegate.swift */,
 				5C16ECFE27D6926300682D09 /* SceneDelegate.swift */,
 				5C16ED0027D6926300682D09 /* HomeViewController.swift */,
 				5C16ED1027D699A200682D09 /* Crypto.swift */,
 				5C16ED0227D6926300682D09 /* Main.storyboard */,
+				5C16ED1E27DC04AE00682D09 /* PortfolioViewController.swift */,
+				5C16ED1C27DB0A8C00682D09 /* User.swift */,
 				5C16ED1627D8771600682D09 /* DetailTableViewController.swift */,
 				5C16ED1227D6BA1D00682D09 /* AllTableViewController.swift */,
 				5C16ED0527D6926500682D09 /* Assets.xcassets */,
@@ -151,9 +160,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C16ED1927D9A0A200682D09 /* TradeViewController.swift in Sources */,
+				5C16ED1F27DC04AE00682D09 /* PortfolioViewController.swift in Sources */,
 				5C16ED1727D8771600682D09 /* DetailTableViewController.swift in Sources */,
+				5C16ED1B27D9E18F00682D09 /* Order.swift in Sources */,
 				5C16ED1327D6BA1D00682D09 /* AllTableViewController.swift in Sources */,
 				5C16ED1127D699A300682D09 /* Crypto.swift in Sources */,
+				5C16ED1D27DB0A8C00682D09 /* User.swift in Sources */,
 				5C16ED0127D6926300682D09 /* HomeViewController.swift in Sources */,
 				5C16ECFD27D6926300682D09 /* AppDelegate.swift in Sources */,
 				5C16ECFF27D6926300682D09 /* SceneDelegate.swift in Sources */,

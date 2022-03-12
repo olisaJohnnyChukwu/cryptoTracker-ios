@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Crypto:Codable{
+struct Crypto:Codable,Hashable{
     let symbol:String
     let name:String
     let id:String
@@ -54,12 +54,6 @@ struct Crypto:Codable{
 //    "ath_change_percentage": -44.53584,
     
     
-    
-    
-    
-
-    
-    
-    
-    
 }
+
+
