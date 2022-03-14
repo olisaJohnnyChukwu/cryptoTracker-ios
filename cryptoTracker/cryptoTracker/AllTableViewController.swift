@@ -17,6 +17,7 @@ class AllTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
     }
 
     // MARK: - Table view data source
@@ -42,7 +43,7 @@ class AllTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "crypto", for: indexPath)
         
         cell.textLabel?.text=crypto.name
-        cell.detailTextLabel?.text="\(crypto.price)"
+        cell.detailTextLabel?.text="$ \(crypto.price)"
 //        if let data = try? Data(contentsOf: url) {}
         
         if let data = try? Data(contentsOf:       URL(string: crypto.image)!){

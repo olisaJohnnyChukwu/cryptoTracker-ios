@@ -234,6 +234,17 @@ class TradeViewController: UIViewController {
     
     @IBAction func returnToPrevious(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+        
+        var top:UIViewController = self
+        
+        while top.presentingViewController != nil {
+            top = top.presentingViewController!
+            
+        }
+        
+        top.dismiss(animated: true, completion: nil)
+        
+        
     }
     
     

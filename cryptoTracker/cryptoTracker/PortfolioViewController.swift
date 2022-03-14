@@ -52,8 +52,14 @@ class PortfolioViewController: UIViewController,UITableViewDelegate,UITableViewD
     
 
     
-    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        guard let target = segue.destination as?
+                FiatViewController else {return}
+
+
+    }
+
     
     
     

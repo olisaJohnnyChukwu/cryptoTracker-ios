@@ -27,8 +27,19 @@ class TransactionViewController: UIViewController,UITableViewDelegate,UITableVie
         
         let order = allOrders[indexPath.row]
         
+       
+        
+        
+        
         cell.textLabel?.text=order.name
-        cell.detailTextLabel?.text="$ \(order.price)"
+       
+        
+        cell.detailTextLabel?.text = (order.type == OrderType.withdraw || order.type == OrderType.sell ? "- " :"+ ") + "$ \(order.price)"
+        
+        
+        
+        
+        
         
         return cell
         
